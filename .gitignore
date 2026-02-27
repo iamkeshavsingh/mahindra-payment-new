@@ -1,0 +1,33 @@
+# Environment variables and sensitive configuration
+payments/config.env
+config.env
+.env
+
+# Logs
+*.log
+payments/*.log
+api_errors.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.bak
+*.backup
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore

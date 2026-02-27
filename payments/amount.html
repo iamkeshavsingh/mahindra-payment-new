@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Mahindra Lifespaces | Online Payment</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: #fff;
+        color: #111;
+        font-family: "Georama", sans-serif;
+      }
+
+      /* ================= HEADER ================= */
+      .header {
+        padding: 20px;
+      }
+      .logo {
+        height: 32px;
+      }
+
+      /* ================= BANNER ================= */
+      .banner {
+        position: relative;
+        height: 257px;
+        background: url("../payments/img/mahindraBanner.avif") center no-repeat;
+        margin: 0 20px;
+      }
+      .banner::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+      }
+      .banner-text {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fff;
+        font-size: 32px;
+        z-index: 2;
+      }
+
+      /* ================= CONTENT ================= */
+      .container {
+        margin: auto;
+        padding: 40px 20px;
+      }
+      .title {
+        text-align: center;
+        font-size: 23px;
+        font-weight: 700;
+      }
+      .subtitle {
+        margin: 15px auto 40px;
+        text-align: center;
+        color: #555;
+        line-height: 1.6;
+      }
+
+      /* ================= LAYOUT ================= */
+      .grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 40px;
+      }
+
+      /* ================= LEFT PANEL ================= */
+      .section-title {
+        background: #000;
+        color: #fff;
+        padding: 14px 20px;
+        font-weight: 600;
+        margin-bottom: 25px;
+        text-align: center;
+      }
+      .form-box h4 {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 4px;
+        text-align: center;
+      }
+      .form-box .para {
+        text-align: center;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+      }
+      .form-box .inputTitle {
+        font-size: 12px;
+      }
+      .form-box .inputTitle span {
+        color: red;
+      }
+      .form-box input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .btnParent {
+        display: flex;
+        justify-content: end;
+      }
+      .btn {
+        background: #000;
+        color: #fff;
+        padding: 12px 22px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 15px;
+      }
+      .btn.secondary {
+        background: #777;
+      }
+      .actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+        justify-content: end;
+      }
+      .loader {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #ccc;
+        border-top: 4px solid #000;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+      .step3Head {
+        background-color: #f2f2f2;
+        text-align: center;
+        padding: 14px;
+        font-size: 14px;
+      }
+      th {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      td {
+        font-size: 12px;
+        font-weight: 400;
+      }
+      .enterAmountText {
+        font-size: 14px;
+        margin: 0;
+        margin-bottom: 4px;
+        padding: 0;
+      }
+      .enterAmountText span {
+        color: red;
+      }
+      .amountFeild {
+        width: 400px;
+        margin: 0 auto;
+        padding-bottom: 8px;
+      }
+      .amountFeild input {
+        width: 100%;
+      }
+      .subText {
+        font-size: 12px;
+        text-align: center;
+        padding-bottom: 8px;
+      }
+      .subTextBold {
+        font-size: 12px;
+        text-align: center;
+        font-weight: 800;
+        margin-top: 8px;
+        margin-bottom: 8px;
+      }
+      .disclaimer {
+        font-size: 12px;
+        line-height: 18px;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* ================= RIGHT PANEL ================= */
+      .right .section-title {
+        text-align: center;
+      }
+      .steps {
+        line-height: 1.8;
+        font-size: 14px;
+      }
+      .contact {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #444;
+      }
+
+      /* ================= HIDE ================= */
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <div class="header">
+      <img
+        class="logo"
+        src="../payments/img/mahindra.jpeg"
+        alt="Mahindra Lifespaces"
+      />
+    </div>
+
+    <!-- BANNER -->
+    <div class="banner">
+      <div class="banner-text">Online Payment</div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="container">
+      <div class="title">
+        Make Your Property Payment Online – Fast, Secure & Hassle-Free
+      </div>
+      <div class="subtitle">
+        Welcome to our Online Payment platform, thoughtfully designed to
+        simplify your property transactions like never before. Whether you're
+        settling the final balance, paying in instalments, or clearing
+        outstanding dues, our secure gateway guarantees that your payments are
+        processed swiftly and safely.
+      </div>
+
+      <div class="grid">
+        <!-- LEFT -->
+        <div>
+          <div class="section-title">
+            Multiple Payment Options – Credit/Debit Cards, Net Banking, UPI,
+            Wallets
+          </div>
+
+          <!-- STEP 1 -->
+          <!-- <div id="step1" class="form-box">
+            <h4>Phone Number</h4>
+            <p class="para">
+              For mapping the correct payment, enter the registered phone
+              number.
+            </p>
+            <p class="inputTitle"><span>*</span> Phone</p>
+            <input type="tel" placeholder="Enter registered phone number" />
+            <div class="btnParent">
+              <button class="btn" onclick="generateOtp()">Generate OTP</button>
+            </div>
+          </div> -->
+
+          <!-- LOADER -->
+          <!-- <div id="loader" class="loader hidden"></div> -->
+
+          <!-- STEP 2 -->
+          <!-- <div id="step2" class="form-box hidden">
+            <h4>Enter OTP</h4>
+            <input type="text" placeholder="Enter OTP" />
+            <div class="btnParent">
+              <button class="btn" onclick="verifyOtp()">Submit OTP</button>
+            </div>
+          </div> -->
+
+          <!-- STEP 3 -->
+          <div id="step3">
+            <h3 class="step3Head" style="margin-bottom: 15px">
+              Payment Processing for Properties
+            </h3>
+
+            <table width="100%" cellpadding="10" cellspacing="0" border="1">
+              <thead style="background: #f2f2f2">
+                <tr>
+                  <th></th>
+                  <th>Application No</th>
+                  <th>Project Name</th>
+                  <th>Tower</th>
+                  <th>Unit Type</th>
+                  <th>Property No</th>
+                  <th>Outstanding</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="propertyTableBody"></tbody>
+            </table>
+
+            <div style="margin-top: 20px">
+              <div class="amountFeild">
+                <h4 class="enterAmountText">
+                  <span>*</span> Enter Amount to Pay
+                </h4>
+
+                <input type="number" placeholder="Enter amount" />
+              </div>
+            </div>
+            <hr />
+            <div class="btnParent">
+              <button class="btn" onclick="goReview()">Pay</button>
+            </div>
+          </div>
+
+          <!-- STEP 4 -->
+          <!-- <div id="step4" class="form-box hidden">
+            <h3 class="step3Head" style="margin-bottom: 15px">
+              Payment Processing for Properties
+            </h3>
+
+            <p class="subText">
+              Please review your customer and payment details before proceeding
+            </p>
+            <p class="subTextBold">Customer Detail:</p>
+
+            <p class="subText">Name: Harshal Bhagat Sandbox 1</p>
+            <p class="subText">Mobile: 9876543210</p>
+            <p class="subText">Email: bhagat.harshalkumar@mahindra.com</p>
+            <p class="subTextBold">Property and Payment Details:</p>
+            <p class="subText">Project: Mahindra NewHeaven</p>
+            <p class="subText">Tower: A</p>
+            <p class="subText">House/Unit No: NewHeaven-D-17-04</p>
+            <p class="subText">Amount to pay: 20,000</p>
+            <p class="disclaimer">
+              <strong>Disclaimer:</strong> You are being to redirect to
+              easebuzz, Our secure payment gateway partner. Please complete your
+              transection on Easebuzz screen. Mahindra Lifespaces Developer Ltd.
+              does not store your card and payment details.
+            </p>
+            <hr />
+            <div class="actions">
+              <button class="btn secondary" onclick="goBack()">Back</button>
+              <button class="btn">Submit Payment</button>
+            </div>
+          </div> -->
+        </div>
+
+        <!-- RIGHT -->
+        <div class="right">
+          <div class="section-title">How It Works?</div>
+          <div class="steps">
+            1. Enter registered Mobile no.<br />
+            2. Add the received OTP.<br />
+            3. Verify payment details.<br />
+            4. Choose payment method.<br />
+            5. Receive instant confirmation.
+          </div>
+          <div class="contact">
+            <p>
+              Need help? Our support team is available to assist you with any
+              queries related to your transaction
+            </p>
+            ✉ customercare@mahindralifespaces.in<br />
+            ☎ 022 5016 4122
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const propertyData = [
+        {
+          applicationNo: "25-12-0023218",
+          projectName: "Mahindra NewHaven",
+          tower: "A",
+          unitType: "3 BHK",
+          propertyNo: "NewHaven-D-17-04",
+          outstandingAmount: 3223643.2,
+          status: "Booking Approved",
+        },
+        {
+          applicationNo: "25-03-0019791",
+          projectName: "Mahindra Vista",
+          tower: "D",
+          unitType: "1 BHK",
+          propertyNo: "14",
+          outstandingAmount: -431.0,
+          status: "Booking Approved",
+        },
+        {
+          applicationNo: "24-05-0018360",
+          projectName: "Mahindra Marina64",
+          tower: "A",
+          unitType: "3 BHK",
+          propertyNo: "Marina-01-01",
+          outstandingAmount: 6170425.62,
+          status: "Booking Approved",
+        },
+      ];
+
+      // function generateOtp() {
+      //   document.getElementById("step1").classList.add("hidden");
+      //   document.getElementById("loader").classList.remove("hidden");
+
+      //   setTimeout(() => {
+      //     document.getElementById("loader").classList.add("hidden");
+      //     document.getElementById("step2").classList.remove("hidden");
+      //   }, 2000);
+      // }
+
+      // function verifyOtp() {
+      // document.getElementById("step2").classList.add("hidden");
+      // document.getElementById("step3").classList.remove("hidden");
+
+      const tbody = document.getElementById("propertyTableBody");
+      tbody.innerHTML = "";
+
+      propertyData.forEach((item) => {
+        tbody.innerHTML += `
+      <tr>
+        <td><input type="radio" name="property"/></td>
+        <td>${item.applicationNo}</td>
+        <td>${item.projectName}</td>
+        <td>${item.tower}</td>
+        <td>${item.unitType}</td>
+        <td>${item.propertyNo}</td>
+        <td>₹${item.outstandingAmount.toLocaleString()}</td>
+        <td>${item.status}</td>
+      </tr>
+    `;
+      });
+      // }
+
+      // function goReview() {
+      //   document.getElementById("step3").classList.add("hidden");
+      //   document.getElementById("step4").classList.remove("hidden");
+      // }
+
+      // function goBack() {
+      //   document.getElementById("step4").classList.add("hidden");
+      //   document.getElementById("step3").classList.remove("hidden");
+      // }
+    </script>
+  </body>
+</html>

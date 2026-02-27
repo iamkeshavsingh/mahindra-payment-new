@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Georama:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Mahindra Lifespaces | Online Payment</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        /* background: #fff; */
+        /* color: #111; */
+        font-family: "Georama", sans-serif;
+      }
+
+      /* ================= HEADER ================= */
+      /* .header {
+        padding: 20px;
+      }
+      .logo {
+        height: 32px;
+      } */
+
+      /* ================= BANNER ================= */
+      /* .banner {
+        position: relative;
+        height: 257px;
+        background: url("img/mahindraBanner.avif") center no-repeat;
+        margin: 0 20px;
+      }
+      .banner::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+      }
+      .banner-text {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fff;
+        font-size: 32px;
+        z-index: 2;
+      } */
+
+      /* ================= CONTENT ================= */
+      /* .container {
+        margin: auto;
+        padding: 40px 20px;
+      }
+      .title {
+        text-align: center;
+        font-size: 23px;
+        font-weight: 700;
+      }
+      .subtitle {
+        margin: 15px auto 40px;
+        text-align: center;
+        color: #555;
+        line-height: 1.6;
+      } */
+
+      /* ================= LAYOUT ================= */
+      /* .grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 40px;
+      } */
+
+      /* ================= LEFT PANEL ================= */
+      /* .section-title {
+        background: #000;
+        color: #fff;
+        padding: 14px 20px;
+        font-weight: 600;
+        margin-bottom: 25px;
+        text-align: center;
+      }
+      .form-box h4 {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 4px;
+        text-align: center;
+      }
+      .form-box .para {
+        text-align: center;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+      }
+      .form-box .inputTitle {
+        font-size: 12px;
+      }
+      .form-box .inputTitle span {
+        color: red;
+      }
+      .form-box input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      .btnParent {
+        display: flex;
+        justify-content: end;
+      }
+      .btn {
+        background: #000;
+        color: #fff;
+        padding: 12px 22px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 15px;
+      }
+      .btn.secondary {
+        background: #777;
+      }
+      .actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+        justify-content: end;
+      }
+      .loader {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #ccc;
+        border-top: 4px solid #000;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+      }
+      .step3Head {
+        background-color: #f2f2f2;
+        text-align: center;
+        padding: 14px;
+        font-size: 14px;
+      }
+      th {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      td {
+        font-size: 12px;
+        font-weight: 400;
+      }
+      .enterAmountText {
+        font-size: 14px;
+        margin: 0;
+        margin-bottom: 4px;
+        padding: 0;
+      }
+      .enterAmountText span {
+        color: red;
+      }
+      .amountFeild {
+        width: 400px;
+        margin: 0 auto;
+        padding-bottom: 8px;
+      }
+      .amountFeild input {
+        width: 100%;
+      }
+      .subText {
+        font-size: 12px;
+        text-align: center;
+        padding-bottom: 8px;
+      }
+      .subTextBold {
+        font-size: 12px;
+        text-align: center;
+        font-weight: 800;
+        margin-top: 8px;
+        margin-bottom: 8px;
+      }
+      .disclaimer {
+        font-size: 12px;
+        line-height: 18px;
+      }
+      .phnFeild {
+        padding-bottom: 12px;
+        max-width: 435px;
+        margin: 0 auto;
+      }
+      .phnFeildOtp {
+        max-width: 435px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .phnFeildOtp input {
+        width: 100%;
+        margin-top: 10px;
+        height: 48px;
+        text-align: center;
+      }
+      .otpLabel {
+        background-color: #ecebea;
+        padding: 12px 0;
+        font-size: 14px;
+      }
+      .subText2 {
+        font-size: 14px;
+        text-align: center;
+        padding-bottom: 8px;
+      }
+      .error-message {
+        color: #e74c3c;
+        font-size: 12px;
+        margin-top: 5px;
+        display: none;
+      }
+      .input-error {
+        border-color: #e74c3c !important;
+        box-shadow: 0 0 0 1px #e74c3c;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      } */
+
+      /* ================= RIGHT PANEL ================= */
+      /* .right .section-title {
+        text-align: center;
+      }
+      .steps {
+        line-height: 1.8;
+        font-size: 14px;
+      }
+      .contact {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #444;
+      } */
+
+      /* ================= HIDE ================= */
+      /* .hidden {
+        display: none;
+      } */
+    </style>
+  </head>
+
+  <body>
+
+
+    <script>
+      // Global variables for storing data
+      let bookingDetails = null;
+      let userPhoneNumber = null;
+
+      // Validation functions
+      function validatePhone(phone) {
+        const phoneRegex = /^[6-9]\d{9}$/;
+        return phoneRegex.test(phone.replace(/\s/g, ''));
+      }
+
+      function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      function showError(inputId, errorId, message) {
+        const input = document.getElementById(inputId);
+        const error = document.getElementById(errorId);
+        input.classList.add('input-error');
+        error.textContent = message;
+        error.style.display = 'block';
+      }
+
+      function hideError(inputId, errorId) {
+        const input = document.getElementById(inputId);
+        const error = document.getElementById(errorId);
+        input.classList.remove('input-error');
+        error.style.display = 'none';
+      }
+
+      function validateInputs() {
+        const phoneInput = document.getElementById('phoneInput');
+        const emailInput = document.getElementById('emailInput');
+        const phoneValue = phoneInput.value.trim();
+        const emailValue = emailInput.value.trim();
+        
+        let isValid = true;
+
+        // Reset previous errors
+        hideError('phoneInput', 'phoneError');
+        hideError('emailInput', 'emailError');
+
+        // Check if both fields are empty
+        if (!phoneValue && !emailValue) {
+          showError('phoneInput', 'phoneError', 'Please enter either phone number or email address');
+          showError('emailInput', 'emailError', 'Please enter either phone number or email address');
+          return false;
+        }
+
+        // Validate phone if provided
+        if (phoneValue) {
+          if (!validatePhone(phoneValue)) {
+            showError('phoneInput', 'phoneError', 'Invalid format. Please enter your registered phone number.');
+            isValid = false;
+          }
+        }
+
+        // Validate email if provided
+        if (emailValue) {
+          if (!validateEmail(emailValue)) {
+            showError('emailInput', 'emailError', 'Invalid format. Please enter your registered email address.');
+            isValid = false;
+          }
+        }
+
+        return isValid;
+      }
+
+
+      async function generateOtp() {
+        if (!validateInputs()) {
+          return;
+        }
+
+        // Get the entered value (phone or email)
+        const phoneValue = document.getElementById('phoneInput').value.trim();
+        const emailValue = document.getElementById('emailInput').value.trim();
+        const mobileOrEmail = phoneValue || emailValue;
+
+        document.getElementById("step1").classList.add("hidden");
+        document.getElementById("loader").classList.remove("hidden");
+
+        try {
+          // Call new sendOTP API
+          const response = await fetch('api_handler.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              action: 'sendOTP',
+              mobileORemail: mobileOrEmail
+            })
+          });
+
+          if (!response.ok) {
+            throw new Error(`Server error: ${response.status}`);
+          }
+
+          const result = await response.json();
+          console.log('OTP send response:', result);
+          
+          if (result.success && result.otpSent) {
+            // Store phone number/identifier for OTP verification
+            userPhoneNumber = result.phone;
+            
+            // OTP sent successfully, proceed to OTP step
+            document.getElementById("loader").classList.add("hidden");
+            document.getElementById("step2").classList.remove("hidden");
+            
+            // Update OTP label based on contact type
+            const otpLabel = document.querySelector('#step2 .otpLabel');
+            if (result.contactType === 'email') {
+              otpLabel.textContent = 'Please enter 6 digit OTP sent to your email';
+            } else {
+              otpLabel.textContent = 'Please enter 6 digit one time password';
+            }
+          } else {
+            // Failed to send OTP
+            document.getElementById("loader").classList.add("hidden");
+            document.getElementById("step1").classList.remove("hidden");
+            alert(result.message || 'Failed to send OTP. Please try again.');
+          }
+          
+        } catch (error) {
+          console.error('API Error:', error);
+          
+          // Hide loader and show step1 again for API errors
+          document.getElementById("loader").classList.add("hidden");
+          document.getElementById("step1").classList.remove("hidden");
+          alert('Failed to send OTP. Please check your connection and try again.');
+        }
+      }
+
+      async function verifyOtp() {
+        const otpInput = document.getElementById('otpInput');
+        const otpValue = otpInput.value.trim();
+        
+        // Reset previous errors
+        hideError('otpInput', 'otpError');
+        
+        // Validate OTP
+        if (!otpValue) {
+          showError('otpInput', 'otpError', 'Please enter the OTP');
+          return;
+        }
+        
+        if (otpValue.length !== 6 || !/^\d{6}$/.test(otpValue)) {
+          showError('otpInput', 'otpError', 'OTP entered is invalid');
+          return;
+        }
+        
+        if (!userPhoneNumber) {
+          showError('otpInput', 'otpError', 'Phone number not found. Please restart the process.');
+          return;
+        }
+        
+        // Show loader
+        document.getElementById("step2").classList.add("hidden");
+        document.getElementById("loader").classList.remove("hidden");
+        
+        try {
+          const response = await fetch('api_handler.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              action: 'verifyOTP',
+              otp: otpValue,
+              phoneNumber: userPhoneNumber
+            })
+          });
+          
+          if (!response.ok) {
+            throw new Error(`Server error: ${response.status}`);
+          }
+          
+          const result = await response.json();
+          console.log('OTP Verification response:', result);
+          
+          document.getElementById("loader").classList.add("hidden");
+          
+          if (result.success && result.otpVerified) {
+            // OTP verified successfully, now check booking results
+            if (result.hasBookings && result.bookings) {
+              // Store booking details and show booking table
+              bookingDetails = result.bookings;
+              console.log('OTP verification successful. Booking details:', bookingDetails);
+              showBookingTable();
+            } else {
+              // No bookings found - show no booking found screen
+              console.log('OTP verified but no bookings found:', result.bookingMessage);
+              document.getElementById("noBookingFound").classList.remove("hidden");
+              
+              // Update the no booking message if provided
+              if (result.bookingMessage) {
+                const noBookingElement = document.querySelector('#noBookingFound .otpLabel');
+                if (noBookingElement) {
+                  noBookingElement.textContent = 'Booking Status : ' + result.bookingMessage;
+                }
+              }
+            }
+          } else {
+            // OTP verification failed - ensure step2 is visible and show error
+            document.getElementById("step2").classList.remove("hidden");
+            showError('otpInput', 'otpError', result.message || 'Invalid OTP. Please try again.');
+          }
+          
+        } catch (error) {
+          console.error('OTP Verification Error:', error);
+          
+          // Hide loader and show step2 again
+          document.getElementById("step2").classList.remove("hidden");
+          showError('otpInput', 'otpError', 'Failed to verify OTP. Please try again.');
+        }
+      }
+
+      // Add blur event listeners for real-time validation
+      document.addEventListener('DOMContentLoaded', function() {
+        const phoneInput = document.getElementById('phoneInput');
+        const emailInput = document.getElementById('emailInput');
+        const otpInput = document.getElementById('otpInput');
+
+        phoneInput.addEventListener('blur', function() {
+          const value = this.value.trim();
+          if (value && !validatePhone(value)) {
+            showError('phoneInput', 'phoneError', 'Invalid format. Please enter your registered phone number.');
+          } else if (value) {
+            hideError('phoneInput', 'phoneError');
+          }
+        });
+
+        emailInput.addEventListener('blur', function() {
+          const value = this.value.trim();
+          if (value && !validateEmail(value)) {
+            showError('emailInput', 'emailError', 'Invalid format. Please enter your registered email address.');
+          } else if (value) {
+            hideError('emailInput', 'emailError');
+          }
+        });
+
+        // Clear errors when user starts typing
+        phoneInput.addEventListener('input', function() {
+          if (this.classList.contains('input-error')) {
+            hideError('phoneInput', 'phoneError');
+          }
+        });
+
+        emailInput.addEventListener('input', function() {
+          if (this.classList.contains('input-error')) {
+            hideError('emailInput', 'emailError');
+          }
+        });
+
+        // OTP input validation
+        otpInput.addEventListener('input', function() {
+          // Only allow numbers
+          this.value = this.value.replace(/[^0-9]/g, '');
+          
+          // Clear errors when user starts typing
+          if (this.classList.contains('input-error')) {
+            hideError('otpInput', 'otpError');
+          }
+        });
+
+        otpInput.addEventListener('blur', function() {
+          const value = this.value.trim();
+          if (value && (value.length !== 6 || !/^\d{6}$/.test(value))) {
+            showError('otpInput', 'otpError', 'OTP entered is invalid');
+          } else if (value) {
+            hideError('otpInput', 'otpError');
+          }
+        });
+      });
+
+      // Function to show booking table after OTP verification
+      function showBookingTable() {
+        document.getElementById("step2").classList.add("hidden");
+        document.getElementById("step3").classList.remove("hidden");
+        populateBookingTable();
+      }
+
+      // Function to parse and populate booking data
+      function populateBookingTable() {
+        console.log("Populating booking table...");
+        console.log("Raw booking details:", bookingDetails);
+        
+        const tbody = document.getElementById("propertyTableBody");
+        if (!tbody) {
+          console.error("Table body element not found!");
+          return;
+        }
+        
+        tbody.innerHTML = "";
+
+        try {
+          // Parse the nested JSON from bookingDetails.message
+          let allBookings = [];
+          let customerInfo = null;
+          
+          if (bookingDetails && bookingDetails.message) {
+            console.log("Parsing booking message:", bookingDetails.message);
+            
+            // Split multiple JSON objects in the message (they are concatenated with spaces)
+            const messageContent = bookingDetails.message.trim();
+            console.log("Raw message content:", messageContent);
+            
+            // Try to extract multiple JSON objects by finding }{ pattern
+            const jsonObjects = [];
+            let startIndex = 0;
+            let braceCount = 0;
+            let inString = false;
+            let escape = false;
+            
+            for (let i = 0; i < messageContent.length; i++) {
+              const char = messageContent[i];
+              
+              if (escape) {
+                escape = false;
+                continue;
+              }
+              
+              if (char === '\\') {
+                escape = true;
+                continue;
+              }
+              
+              if (char === '"') {
+                inString = !inString;
+                continue;
+              }
+              
+              if (inString) continue;
+              
+              if (char === '{') {
+                braceCount++;
+              } else if (char === '}') {
+                braceCount--;
+                if (braceCount === 0) {
+                  // Found complete JSON object
+                  const jsonStr = messageContent.substring(startIndex, i + 1);
+                  try {
+                    const parsedObj = JSON.parse(jsonStr);
+                    jsonObjects.push(parsedObj);
+                    console.log("Parsed JSON object:", parsedObj);
+                  } catch (e) {
+                    console.warn("Failed to parse JSON object:", jsonStr, e);
+                  }
+                  
+                  // Find start of next JSON object
+                  startIndex = i + 1;
+                  while (startIndex < messageContent.length && messageContent[startIndex] === ' ') {
+                    startIndex++;
+                  }
+                  i = startIndex - 1; // -1 because loop will increment
+                }
+              }
+            }
+            
+            console.log("Found", jsonObjects.length, "JSON objects");
+            
+            // Collect all bookings from all customer records
+            jsonObjects.forEach((customerData, customerIndex) => {
+              console.log(`Processing customer ${customerIndex}:`, customerData);
+              
+              // Use the first customer's info for display
+              if (customerIndex === 0) {
+                customerInfo = {
+                  customerName: customerData.customerName,
+                  mobile: customerData.mobile,
+                  email: customerData.email,
+                  customerId: customerData.CustomerId
+                };
+              }
+              
+              // Collect bookings from this customer
+              if (customerData.bookingDetails && Array.isArray(customerData.bookingDetails)) {
+                customerData.bookingDetails.forEach(booking => {
+                  allBookings.push({
+                    ...booking,
+                    customerName: customerData.customerName,
+                    customerMobile: customerData.mobile,
+                    customerEmail: customerData.email
+                  });
+                });
+              }
+            });
+          }
+
+          console.log("Total bookings found:", allBookings.length);
+          console.log("All bookings:", allBookings);
+
+          if (allBookings.length > 0) {
+            console.log("Processing booking details array:", allBookings.length, "items");
+            
+            allBookings.forEach((item, index) => {
+              console.log(`Processing booking item ${index}:`, item);
+              tbody.innerHTML += `
+                <tr>
+                  <td><input type="radio" name="property" data-booking-id="${item.bookingId || ''}" data-outstanding="${item.outstandingBalance || 0}" data-customer-name="${item.customerName || ''}" data-customer-mobile="${item.customerMobile || ''}" data-customer-email="${item.customerEmail || ''}"/></td>
+                  <td>${item.bookingName || 'N/A'}</td>
+                  <td>${item.projectName || 'N/A'}</td>
+                  <td>${item.tower || 'N/A'}</td>
+                  <td>${item.unitType || 'N/A'}</td>
+                  <td>${item.propertyName || 'N/A'}</td>
+                  <td>₹${parseFloat(item.outstandingBalance || 0).toLocaleString()}</td>
+                </tr>
+              `;
+            });
+            
+            console.log("Table populated successfully with", allBookings.length, "items");
+            
+            // Store customer info for payment summary
+            if (customerInfo) {
+              window.selectedCustomerInfo = customerInfo;
+            }
+            
+            // Add event listeners to radio buttons for amount auto-population
+            addRadioButtonListeners();
+          } else {
+            console.log("No valid booking details found, showing fallback message");
+            tbody.innerHTML = `
+              <tr>
+                <td colspan="8" style="text-align: center; padding: 20px; color: #666;">
+                  No booking details available
+                </td>
+              </tr>
+            `;
+          }
+        } catch (error) {
+          console.error("Error parsing booking data:", error);
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="8" style="text-align: center; padding: 20px; color: #e74c3c;">
+                Error loading booking details
+              </td>
+            </tr>
+          `;
+        }
+        
+        console.log("Final table HTML:", tbody.innerHTML);
+      }
+
+      // Function to add event listeners to radio buttons
+      function addRadioButtonListeners() {
+        const radioButtons = document.querySelectorAll('input[name="property"]');
+        const amountInput = document.getElementById('amountInput');
+        
+        radioButtons.forEach(radio => {
+          radio.addEventListener('change', function() {
+            if (this.checked) {
+              const outstandingAmount = this.getAttribute('data-outstanding');
+              const bookingId = this.getAttribute('data-booking-id');
+              
+              console.log('Selected booking:', bookingId, 'Outstanding:', outstandingAmount);
+              
+              // Auto-populate amount field with outstanding balance
+              if (outstandingAmount && amountInput) {
+                // Remove commas and convert to number
+                const numericAmount = parseFloat(outstandingAmount);
+                amountInput.value = numericAmount;
+                console.log('Amount field populated with:', numericAmount);
+              }
+            }
+          });
+        });
+        
+        console.log('Radio button listeners added to', radioButtons.length, 'buttons');
+      }
+
+      // Function to show payment summary and populate data
+      function goReview() {
+        const amountInput = document.getElementById('amountInput');
+        const selectedRadio = document.querySelector('input[name="property"]:checked');
+
+        if (!selectedRadio) {
+          alert('Please select a booking.');
+          return;
+        }
+        
+        if (!amountInput.value || parseFloat(amountInput.value) <= 0) {
+          alert('Please enter a valid amount to pay.');
+          return;
+        }
+        
+        console.log("Proceeding to payment review...");
+        console.log("Selected booking ID:", selectedRadio.getAttribute('data-booking-id'));
+        console.log("Payment amount:", amountInput.value);
+        
+        // Hide table step and show summary step
+        document.getElementById("step3").classList.add("hidden");
+        document.getElementById("step4").classList.remove("hidden");
+        
+        // Populate payment summary with data
+        populatePaymentSummary(selectedRadio, amountInput.value);
+      }
+
+      // Function to populate payment summary with customer and property data
+      function populatePaymentSummary(selectedRadio, paymentAmount) {
+        try {
+          console.log("Populating payment summary...");
+          
+          // Get customer and booking details from radio button data attributes
+          const customerName = selectedRadio.getAttribute('data-customer-name');
+          const customerMobile = selectedRadio.getAttribute('data-customer-mobile');
+          const customerEmail = selectedRadio.getAttribute('data-customer-email');
+          const selectedBookingId = selectedRadio.getAttribute('data-booking-id');
+          
+          console.log("Selected booking ID:", selectedBookingId);
+          console.log("Customer data:", { customerName, customerMobile, customerEmail });
+          
+          // Find the booking details from the table row
+          const selectedRow = selectedRadio.closest('tr');
+          const cells = selectedRow.querySelectorAll('td');
+          
+          const projectName = cells[2] ? cells[2].textContent.trim() : 'N/A';
+          const tower = cells[3] ? cells[3].textContent.trim() : 'N/A';
+          const propertyName = cells[5] ? cells[5].textContent.trim() : 'N/A';
+          
+          console.log("Booking details:", { projectName, tower, propertyName });
+          
+          // Populate Customer Details
+          document.getElementById('customerName').textContent = 
+            `Name: ${customerName || 'N/A'}`;
+          document.getElementById('customerMobile').textContent = 
+            `Mobile: ${customerMobile || 'N/A'}`;
+          document.getElementById('customerEmail').textContent = 
+            `Email: ${customerEmail || 'N/A'}`;
+          
+          // Populate Property and Payment Details
+          document.getElementById('selectedProject').textContent = 
+            `Project: ${projectName}`;
+          document.getElementById('selectedTower').textContent = 
+            `Tower: ${tower}`;
+          document.getElementById('selectedProperty').textContent = 
+            `House/Unit No: ${propertyName}`;
+          
+          // Format and display payment amount
+          const formattedAmount = parseFloat(paymentAmount).toLocaleString();
+          document.getElementById('paymentAmount').textContent = 
+            `Amount to pay: ₹${formattedAmount}`;
+          
+          console.log("Payment summary populated successfully");
+          
+        } catch (error) {
+          console.error("Error populating payment summary:", error);
+          
+          // Show fallback data in case of error
+          document.getElementById('customerName').textContent = 'Name: Error loading data';
+          document.getElementById('customerMobile').textContent = 'Mobile: Error loading data';
+          document.getElementById('customerEmail').textContent = 'Email: Error loading data';
+          document.getElementById('selectedProject').textContent = 'Project: Error loading data';
+          document.getElementById('selectedTower').textContent = 'Tower: Error loading data';
+          document.getElementById('selectedProperty').textContent = 'House/Unit No: Error loading data';
+          document.getElementById('paymentAmount').textContent = `Amount to pay: ₹${paymentAmount}`;
+        }
+      }
+
+      // Function to go back from summary to table
+      function goBack() {
+        document.getElementById("step4").classList.add("hidden");
+        document.getElementById("step3").classList.remove("hidden");
+      }
+
+      // Function to go back to step1 from no booking found screen
+      function goBackToStep1() {
+        document.getElementById("noBookingFound").classList.add("hidden");
+        document.getElementById("step1").classList.remove("hidden");
+        
+        // Clear previous input values and errors
+        document.getElementById('phoneInput').value = '';
+        document.getElementById('emailInput').value = '';
+        hideError('phoneInput', 'phoneError');
+        hideError('emailInput', 'emailError');
+      }
+
+      // Function to submit payment and redirect to Easebuzz
+      async function submitPayment() {
+        try {
+          console.log("Initiating payment submission...");
+          
+          // Get selected booking and payment details
+          const selectedRadio = document.querySelector('input[name="property"]:checked');
+          const amountInput = document.getElementById('amountInput');
+          
+          if (!selectedRadio) {
+            alert('Payment session expired. Please restart the process.');
+            return;
+          }
+          
+          // Get customer and booking details from radio button data attributes
+          const customerName = selectedRadio.getAttribute('data-customer-name');
+          const customerMobile = selectedRadio.getAttribute('data-customer-mobile');
+          const customerEmail = selectedRadio.getAttribute('data-customer-email');
+          const selectedBookingId = selectedRadio.getAttribute('data-booking-id');
+          
+          // Get booking details from table row
+          const selectedRow = selectedRadio.closest('tr');
+          const cells = selectedRow.querySelectorAll('td');
+          
+          const bookingName = cells[1] ? cells[1].textContent.trim() : '';
+          const projectName = cells[2] ? cells[2].textContent.trim() : '';
+          const tower = cells[3] ? cells[3].textContent.trim() : '';
+          const unitType = cells[4] ? cells[4].textContent.trim() : '';
+          const propertyName = cells[5] ? cells[5].textContent.trim() : '';
+          
+          if (!selectedBookingId || !customerName || !customerMobile) {
+            alert('Booking details not found. Please restart the process.');
+            return;
+          }
+          
+          // Prepare payment data
+          const paymentData = {
+            action: 'createPaymentLink',
+            bookingId: selectedBookingId,
+            bookingName: bookingName,
+            amount: parseFloat(amountInput.value),
+            customerName: customerName,
+            email: customerEmail,
+            mobile: customerMobile,
+            projectName: projectName,
+            tower: tower,
+            propertyName: propertyName,
+            unitType: unitType
+          };
+          
+          console.log("Payment data:", paymentData);
+          
+          // Show loading state
+          const submitBtn = event.target;
+          const originalText = submitBtn.textContent;
+          submitBtn.textContent = 'Processing...';
+          submitBtn.disabled = true;
+          
+          // Call payment endpoint
+          const response = await fetch('api_handler.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(paymentData)
+          });
+          
+          if (!response.ok) {
+            throw new Error(`Server error: ${response.status}`);
+          }
+          
+          const result = await response.json();
+          console.log('Payment response:', result);
+          
+          if (result.success && result.payment_url) {
+            // Redirect to payment URL
+            console.log('Redirecting to payment URL:', result.payment_url);
+            window.location.href = result.payment_url;
+          } else {
+            // Show error message
+            alert('Failed to create payment link: ' + (result.message || 'Unknown error'));
+            
+            // Reset button state
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+          }
+          
+        } catch (error) {
+          console.error('Payment submission error:', error);
+          alert('Failed to process payment. Please try again.');
+          
+          // Reset button state
+          const submitBtn = event.target;
+          submitBtn.textContent = 'Submit Payment';
+          submitBtn.disabled = false;
+        }
+      }
+    </script>
+  </body>
+</html>
